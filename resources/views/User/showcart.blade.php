@@ -104,16 +104,26 @@ https://templatemo.com/tm-546-sixteen-clothing
         <td style="padding:10px; font-size:20px;">Price</td>
         <td>Action</td>
       </tr>
+      <form action="{{url('order')}}" method="post">
+        @csrf
 @foreach($cart as $carts)
       <tr style="background-color:black; color:white; ">
-        <td style="padding:10px;">{{$carts->product_title}}</td>
-        <td style="padding:10px;">{{$carts->quantity}}</td>
-        <td style="padding:10px;">${{$carts->price}}</td>
+        <td style="padding:10px; ">
+        <input type="text" name="productname[]" value="{{$carts->product_title}}" hidden="" >  
+        {{$carts->product_title}}</td>
+        <td style="padding:10px; ">
+        <input type="text" name="quantity[]" value="{{$carts->quantity}}" hidden="">  
+        {{$carts->quantity}}</td>
+        <td style="padding:10px; " >
+        <input type="text" name="price" value="${{$carts->price}}" hidden="">  
+        ${{$carts->price}}</td>
         <td style="padding:10px;"><a class="btn btn-danger" href="{{url('deletecart',$carts->id)}}">Delete</a></td>
 
       </tr>
       @endforeach
     </table>
+    <button class="btn btn-success">Confirm Order</button>
+    </form>
     </div>
     <footer>
       <div class="container">

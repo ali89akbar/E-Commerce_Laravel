@@ -39,5 +39,5 @@ route::get('/search',[Admincontroller::class,'search']);
 route::post('/addcart/{id}',[HomeController::class,'addcart']);
 route::get('/showcart',[HomeController::class,'showcart']);
 route::get('/deletecart/{id}',[HomeController::class,'deletecart']);
-
+route::post('/order',[HomeController::class,'confirmorder']);
 route::post('/uploadproduct',[Admincontroller::class,'uploadproduct']);
