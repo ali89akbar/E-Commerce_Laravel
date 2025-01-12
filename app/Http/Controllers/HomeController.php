@@ -98,4 +98,27 @@ class HomeController extends Controller
         return redirect()->back()->with('message','Product Ordered Successfully');
         
     }
+    public function products(){
+        $data = product::paginate(3);
+        $user = auth()->user();
+        $count = cart::where('phone',$user->phone)->count();
+
+        return view('product',compact('data','count'));
+    }
+    public function contacts(){
+        $user = auth()->user();
+        $count = cart::where('phone',$user->phone)->count();
+        return view('contact',compact(('count')));
+
+
+    }
+    public function home(){
+        return view('home');
+    }
+    public function about(){
+        $user = auth()->user();
+        $count = cart::where('phone',$user->phone)->count();
+
+        return view('about',compact('count'));
+    }
 }

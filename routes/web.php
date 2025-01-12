@@ -37,9 +37,14 @@ route::get('/deleteproduct/{id}',[Admincontroller::class,'deleteproduct']);
 route::post('/updateproduct/{id}',[Admincontroller::class,'updateproduct']);
 route::get('/search',[Admincontroller::class,'search']);
 route::post('/addcart/{id}',[HomeController::class,'addcart']);
-route::get('/showcart',[HomeController::class,'showcart']);
+route::get('/showcart',action: [HomeController::class,'showcart']);
+route::get('/products',action: [HomeController::class,'products']);
+route::get('/home',[HomeController::class,'home']);
 route::get('/deletecart/{id}',[HomeController::class,'deletecart']);
 route::post('/order',[HomeController::class,'confirmorder']);
 route::get('/showorder',[Admincontroller::class,'showorder']);
 route::post('/uploadproduct',[Admincontroller::class,'uploadproduct']);
+route::get('/contacts',[HomeController::class,'contacts']);
+route::get('/about',[HomeController::class,'about']);
+
 route::get('/updatestatus/{id}',[Admincontroller::class,'updatestatus']);
