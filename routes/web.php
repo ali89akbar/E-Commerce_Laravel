@@ -46,5 +46,6 @@ route::get('/showorder',[Admincontroller::class,'showorder']);
 route::post('/uploadproduct',[Admincontroller::class,'uploadproduct']);
 route::get('/contacts',[HomeController::class,'contacts']);
 route::get('/about',[HomeController::class,'about']);
+route::get('/sidebar', [AdminController::class, 'sidebar']);
 
 route::get('/updatestatus/{id}',[Admincontroller::class,'updatestatus']);
